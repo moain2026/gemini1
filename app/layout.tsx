@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Sans_Arabic, Tajawal, Amiri } from "next/font/google";
 import "./globals.css";
-import AIAssistant from "@/components/AIAssistant";
 import {
   generateLocalBusinessSchema,
   generateWebSiteSchema,
@@ -178,7 +177,6 @@ export default function RootLayout({
           تخطي إلى المحتوى الرئيسي
         </a>
         {children}
-        <AIAssistant />
       </body>
     </html>
   );
