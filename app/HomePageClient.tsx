@@ -2,6 +2,7 @@
 
 import { useRef, lazy, Suspense } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
 
@@ -51,23 +52,31 @@ export function HomePageClient() {
       <section ref={heroRef} className="relative h-screen min-h-[600px] max-h-[950px] overflow-hidden" aria-label="الشاشة الرئيسية">
         <motion.div className="absolute inset-0" style={{ y: heroY }}>
           {/* صورة الهواتف والأجهزة الصغيرة — High-Res Local */}
-          <ImageWithFallback
-            src={HERO_MOBILE_IMG}
-            alt="كيف الضيافة - خدمات الضيافة الفاخرة"
-            className="block md:hidden w-full h-[110%] object-cover object-center"
-            priority={true}
-            quality={90}
-            sizes="100vw"
-          />
+          <div className="block md:hidden absolute inset-0">
+            <Image
+              src={HERO_MOBILE_IMG}
+              alt="كيف الضيافة - خدمات الضيافة الفاخرة"
+              className="object-cover object-center"
+              priority={true}
+              quality={90}
+              sizes="100vw"
+              fill={true}
+              unoptimized={true}
+            />
+          </div>
           {/* صورة الشاشات الكبيرة واللابتوب — High-Res Local */}
-          <ImageWithFallback
-            src={HERO_IMG}
-            alt="كيف الضيافة - خدمات الضيافة الفاخرة"
-            className="hidden md:block w-full h-[110%] object-cover object-center"
-            priority={true}
-            quality={90}
-            sizes="100vw"
-          />
+          <div className="hidden md:block absolute inset-0">
+            <Image
+              src={HERO_IMG}
+              alt="كيف الضيافة - خدمات الضيافة الفاخرة"
+              className="object-cover object-center"
+              priority={true}
+              quality={90}
+              sizes="100vw"
+              fill={true}
+              unoptimized={true}
+            />
+          </div>
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-b from-[#0f0f0f]/60 via-[#0f0f0f]/25 to-[#0f0f0f]" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0f0f0f]/40 via-transparent to-transparent" />
@@ -107,46 +116,6 @@ export function HomePageClient() {
       <Suspense fallback={<div className="py-16 text-center text-[#B8860B]/30 text-sm">جاري تحميل الشركاء...</div>}>
         <PartnersSlider />
       </Suspense>
-
-      {/* AI ASSISTANT HIGHLIGHT */}
-      <section className="py-24 px-4 max-w-7xl mx-auto relative overflow-hidden">
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(184,134,11,0.05) 0%, transparent 70%)" }} />
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
-          <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-            <p className="text-[#B8860B] mb-4" style={{ fontSize: "0.75rem", letterSpacing: "0.35em" }}>✦ تقنية المستقبل ✦</p>
-            <h2 className="text-[#F5F5DC] mb-5 font-tajawal" style={{ fontSize: "clamp(1.8rem, 4.5vw, 2.8rem)", fontWeight: 900, lineHeight: 1.25 }}>المساعد الذكي <span className="gold-gradient-text">لكيف الضيافة</span></h2>
-            <p className="text-[#F5F5DC]/70 mb-8 leading-relaxed text-sm sm:text-base">
-              استكشف خدماتنا بطريقة مبتكرة مع مساعدنا الذكي المدعوم بالذكاء الاصطناعي. يمكنك الآن:
-            </p>
-            <ul className="space-y-4 mb-8">
-              {[
-                "الحصول على استشارات فورية حول ترتيبات الضيافة",
-                "تحليل صور قاعات المناسبات لاقتراح أفضل التوزيعات"
-              ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-[#F5F5DC]/80 text-sm sm:text-base">
-                  <div className="w-6 h-6 rounded-full bg-[#B8860B]/10 border border-[#B8860B]/30 flex items-center justify-center text-[#B8860B]">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3 h-3"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-                  </div>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <button onClick={() => document.querySelector<HTMLButtonElement>('button[class*="fixed bottom-28"]')?.click()} className="px-8 py-3.5 rounded-full text-[#0f0f0f] transition-all duration-300 hover:-translate-y-0.5" style={{ background: "linear-gradient(135deg, #B8860B, #D4A017, #B8860B)", backgroundSize: "200% auto", fontWeight: 800, fontSize: "0.95rem", boxShadow: "0 6px 25px rgba(184,134,11,0.4)" }}>
-              جرب المساعد الذكي الآن
-            </button>
-          </motion.div>
-          <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="relative h-[400px] rounded-2xl border border-[#B8860B]/20 overflow-hidden glass-light flex items-center justify-center">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#B8860B]/10 to-transparent" />
-            <div className="relative z-10 text-center p-8">
-              <div className="w-20 h-20 mx-auto rounded-full bg-[#B8860B]/10 border border-[#B8860B]/30 flex items-center justify-center mb-6 whatsapp-pulse">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" strokeWidth="1.5" className="w-10 h-10"><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" /></svg>
-              </div>
-              <h3 className="text-[#F5F5DC] text-xl font-bold mb-2">مساعد الذكاء الاصطناعي</h3>
-              <p className="text-[#F5F5DC]/60 text-sm">متوفر على مدار الساعة لتلبية احتياجاتك</p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="py-24 px-4 relative overflow-hidden">

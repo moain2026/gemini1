@@ -6,9 +6,14 @@ import Image from "next/image";
 const ERROR_IMG_SRC =
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODgiIGhlaWdodD0iODgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBvcGFjaXR5PSIuMyIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIzLjciPjxyZWN0IHg9IjE2IiB5PSIxNiIgd2lkdGg9IjU2IiBoZWlnaHQ9IjU2IiByeD0iNiIvPjxwYXRoIGQ9Im0xNiA1OCAxNi0xOCAzMiAzMiIvPjxjaXJjbGUgY3g9IjUzIiBjeT0iMzUiIHI9IjciLz48L3N2Zz4KCg==";
 
+const toBase64 = (str: string) =>
+  typeof window === "undefined"
+    ? Buffer.from(str).toString("base64")
+    : window.btoa(str);
+
 // Shimmer placeholder for blur-up effect
 const shimmerBase64 = (w = 700, h = 475) =>
-  `data:image/svg+xml;base64,${btoa(
+  `data:image/svg+xml;base64,${toBase64(
     `<svg width="${w}" height="${h}" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g"><stop stop-color="#1a1a1a" offset="20%"/><stop stop-color="#242424" offset="50%"/><stop stop-color="#1a1a1a" offset="70%"/></linearGradient></defs><rect width="${w}" height="${h}" fill="#1a1a1a"/><rect width="${w}" height="${h}" fill="url(#g)"><animate attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"/></rect></svg>`
   )}`;
 
