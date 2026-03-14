@@ -180,22 +180,22 @@ export default function Navbar() {
         {menuOpen && (
           <>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }} className="fixed inset-0 z-[60] bg-black/70 backdrop-blur-sm" onClick={closeMenu} />
-            <motion.nav initial={{ y: "100%" }} animate={{ y: 0 }} exit={{ y: "100%" }} transition={{ type: "spring", damping: 28, stiffness: 280 }} id="mobile-nav-menu" className="fixed bottom-0 left-0 right-0 z-[70] rounded-t-3xl overflow-hidden" style={{ background: "linear-gradient(160deg, rgba(18,14,5,0.98) 0%, rgba(12,10,3,0.99) 100%)", backdropFilter: "blur(30px) saturate(200%)", borderTop: "1px solid rgba(184,134,11,0.25)", boxShadow: "0 -20px 80px rgba(184,134,11,0.1)", paddingBottom: "max(100px, calc(80px + env(safe-area-inset-bottom)))" }} role="navigation" aria-label="القائمة الرئيسية">
+            <motion.nav initial={{ y: "100%" }} animate={{ y: 0 }} exit={{ y: "100%" }} transition={{ type: "spring", damping: 28, stiffness: 280 }} id="mobile-nav-menu" className="fixed bottom-0 left-0 right-0 z-[70] rounded-t-3xl overflow-hidden" style={{ background: "linear-gradient(160deg, rgba(18,14,5,0.98) 0%, rgba(12,10,3,0.99) 100%)", backdropFilter: "blur(30px) saturate(200%)", borderTop: "1px solid rgba(184,134,11,0.25)", boxShadow: "0 -20px 80px rgba(184,134,11,0.1)", paddingBottom: "max(80px, calc(60px + env(safe-area-inset-bottom)))" }} role="navigation" aria-label="القائمة الرئيسية">
               <div className="max-w-lg mx-auto px-5 pt-6">
                 <div className="w-10 h-1 bg-[#B8860B]/40 rounded-full mx-auto mb-5" />
                 <div className="flex items-center justify-center gap-3 mb-6">
                   <DallahLogo size={32} />
                   <span className="gold-gradient-text" style={{ fontSize: "1.1rem", fontWeight: 800 }}>كيف الضيافة</span>
                 </div>
-                <div className="space-y-1">
+                <div className="grid grid-cols-2 gap-2">
                   {navLinks.map((link, i) => (
                     <motion.div key={link.href} initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.045, duration: 0.25 }}>
-                      <Link href={link.href} onClick={closeMenu} className={`flex items-center justify-between w-full px-4 py-3.5 rounded-xl transition-all duration-200 min-h-[48px] ${isActive(link.href) ? "text-[#B8860B]" : "text-[#F5F5DC]/75 hover:text-[#B8860B] hover:bg-[#B8860B]/5"}`} style={{ background: isActive(link.href) ? "rgba(184,134,11,0.1)" : undefined, border: isActive(link.href) ? "1px solid rgba(184,134,11,0.25)" : "1px solid transparent", fontWeight: isActive(link.href) ? 700 : 400, fontSize: "1rem" }}>
-                        <div className="flex items-center gap-3">
+                      <Link href={link.href} onClick={closeMenu} className={`flex items-center justify-between w-full px-3 py-3 rounded-xl transition-all duration-200 min-h-[44px] ${isActive(link.href) ? "text-[#B8860B]" : "text-[#F5F5DC]/75 hover:text-[#B8860B] hover:bg-[#B8860B]/5"}`} style={{ background: isActive(link.href) ? "rgba(184,134,11,0.1)" : undefined, border: isActive(link.href) ? "1px solid rgba(184,134,11,0.25)" : "1px solid transparent", fontWeight: isActive(link.href) ? 700 : 400, fontSize: "0.9rem" }}>
+                        <div className="flex items-center gap-2">
                           <span className="text-[#B8860B]/60 text-sm">{link.icon}</span>
                           <span>{link.label}</span>
                         </div>
-                        {isActive(link.href) && <span className="text-[#B8860B] text-xs">●</span>}
+                        {isActive(link.href) && <span className="text-[#B8860B] text-[10px]">●</span>}
                       </Link>
                     </motion.div>
                   ))}
