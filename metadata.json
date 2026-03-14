@@ -1,0 +1,5 @@
+{
+  "name": "كيف الضيافة",
+  "description": "منصة خدمات الضيافة الفاخرة في المملكة العربية السعودية مع مساعد ذكي",
+  "requestFramePermissions": ["camera", "microphone"]
+}

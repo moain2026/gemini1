@@ -1,0 +1,56 @@
+{
+  "name": "كيف الضيافة - خدمات الضيافة الفاخرة",
+  "short_name": "كيف الضيافة",
+  "description": "منصة تجربة فاخرة تعكس جودة وفخامة خدمات الضيافة السعودية",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0f0f",
+  "theme_color": "#B8860B",
+  "orientation": "portrait-primary",
+  "lang": "ar",
+  "dir": "rtl",
+  "categories": ["hospitality", "food", "business"],
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "خدماتنا",
+      "short_name": "الخدمات",
+      "description": "استعرض خدمات الضيافة",
+      "url": "/services"
+    },
+    {
+      "name": "تواصل معنا",
+      "short_name": "تواصل",
+      "description": "تواصل عبر واتساب",
+      "url": "/contact"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+# Image files tracking
+# Note: LFS removed as images are optimized WebP under 250KB each
+# Re-enable with: *.webp filter=lfs diff=lfs merge=lfs -text
+*.webp -text
+*.jpg -text
+*.jpeg -text
+*.png -text
+*.gif -text
+*.svg -text
+*.ico -text
